@@ -1,0 +1,67 @@
+name: Publish Docker images
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  postgis-15:
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+          logout: false
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2.1.0
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v3.2.0
+        with:
+          push: true
+          context: docker-postgis/15-3.3/alpine/
+          file: docker-postgis/15-3.3/alpine/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:15-3.3-alpine
+
+  postgis-14:
+    name: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+      - name: Login to GitHub Packages Docker Registry
+        uses: docker/login-action@v2.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+          logout: false
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2.1.0
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v3.2.0
+        with:
+          push: true
+          context: docker-postgis/14-3.3/alpine/
+          file: docker-postgis/14-3.3/alpine/Dockerfile
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:14-3.3-alpine
