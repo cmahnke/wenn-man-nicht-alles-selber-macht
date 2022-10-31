@@ -15,6 +15,9 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+      - name: Disable JIT
+        run: |
+          ./scripts/patch-postgis.sh
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v2.1.0
         with:
@@ -45,6 +48,9 @@ jobs:
         with:
           submodules: true
           fetch-depth: 0
+      - name: Disable JIT
+        run: |
+          ./scripts/patch-postgis.sh
       - name: Login to GitHub Packages Docker Registry
         uses: docker/login-action@v2.1.0
         with:
