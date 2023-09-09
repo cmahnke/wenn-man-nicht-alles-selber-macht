@@ -30,7 +30,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.10.0
       - name: Push to GitHub Packages
-        uses: docker/build-push-action@v4.1.1
+        uses: docker/build-push-action@v4.2.1
         with:
           push: true
           context: docker-postgis/15-3.3/alpine/
@@ -63,7 +63,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2.10.0
       - name: Push to GitHub Packages
-        uses: docker/build-push-action@v4.1.1
+        uses: docker/build-push-action@v4.2.1
         with:
           push: true
           context: docker-postgis/14-3.3/alpine/
