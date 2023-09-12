@@ -19,7 +19,7 @@ jobs:
         run: |
           ./scripts/patch-postgis.sh
       - name: Login to GitHub Packages Docker Registry
-        uses: docker/login-action@v2.2.0
+        uses: docker/login-action@v3.0.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
@@ -52,7 +52,7 @@ jobs:
         run: |
           ./scripts/patch-postgis.sh
       - name: Login to GitHub Packages Docker Registry
-        uses: docker/login-action@v2.2.0
+        uses: docker/login-action@v3.0.0
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
