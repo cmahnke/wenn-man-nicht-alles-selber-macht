@@ -33,11 +33,11 @@ jobs:
         uses: docker/build-push-action@v5.0.0
         with:
           push: true
-          context: docker-postgis/15-3.3/alpine/
-          file: docker-postgis/15-3.3/alpine/Dockerfile
+          context: docker-postgis/15-3.4/alpine/
+          file: docker-postgis/15-3.4/alpine/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:15-3.3-alpine
+            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:15-3.4-alpine
 
   postgis-14:
     name: Push Docker image to GitHub Packages
@@ -66,8 +66,8 @@ jobs:
         uses: docker/build-push-action@v5.0.0
         with:
           push: true
-          context: docker-postgis/14-3.3/alpine/
-          file: docker-postgis/14-3.3/alpine/Dockerfile
+          context: docker-postgis/14-3.4/alpine/
+          file: docker-postgis/14-3.4/alpine/Dockerfile
           platforms: linux/amd64,linux/arm64
           tags: |
-            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:14-3.3-alpine
+            ghcr.io/cmahnke/wenn-man-nicht-alles-selber-macht/postgis:14-3.4-alpine
